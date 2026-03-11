@@ -1,0 +1,9 @@
+# executables
+kv_benchmark
+benchmark
+
+# WAL logs
+.wal
+
+# macOS
+.DS_Store
