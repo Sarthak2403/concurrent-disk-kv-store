@@ -1,4 +1,4 @@
-# Concurrent Disk-Backed Key-Value Store (C++)
+# Concurrent Disk-Backed Key-Value Store
 
 A thread-safe, disk-backed key-value store built in C++ with write-ahead logging (WAL), crash recovery, and a multithreaded benchmarking framework to evaluate system performance under concurrent workloads.
 
@@ -53,7 +53,7 @@ The project includes a benchmarking tool to evaluate:
 
 ## Sample Results
 
-'''
+```
 
 ==== Write Heavy (0% reads) ====
 Threads: 1 | Throughput: 400000 ops/sec | P99 Latency: 0.0065 ms
@@ -73,7 +73,7 @@ Threads: 2 | Throughput: 2.5e+06 ops/sec | P99 Latency: 0.015833 ms
 Threads: 4 | Throughput: 1.6e+06 ops/sec | P99 Latency: 0.042833 ms
 Threads: 8 | Throughput: 898876 ops/sec | P99 Latency: 0.113583 ms
 
-'''
+``
 
 ---
 
