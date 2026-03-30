@@ -73,7 +73,7 @@ Threads: 2 | Throughput: 2.5e+06 ops/sec | P99 Latency: 0.015833 ms
 Threads: 4 | Throughput: 1.6e+06 ops/sec | P99 Latency: 0.042833 ms
 Threads: 8 | Throughput: 898876 ops/sec | P99 Latency: 0.113583 ms
 
-``
+```
 
 ---
 
