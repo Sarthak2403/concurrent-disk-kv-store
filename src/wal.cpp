@@ -3,6 +3,8 @@
 WAL::WAL(const std::string& filename) : filename_(filename), log_writer_(filename, std::ios::binary | std::ios::app) {}
 
 void WAL::append(const std::string& key, const std::string& value) {
+    std::lock_guard<std::mutex> lock(wal_mutex_);
+
     uint32_t ksize = key.size();
     uint32_t vsize = value.size();
 
@@ -14,7 +16,7 @@ void WAL::append(const std::string& key, const std::string& value) {
     log_writer_.flush();
 }
 
-void WAL::recover(std::unordered_map<std:: string, std::string>& map) {
+void WAL::recover(std::unordered_map<std::string, std::string>& map) {
     std::ifstream reader(filename_, std::ios::binary);
 
     while(true){
@@ -36,4 +38,9 @@ void WAL::recover(std::unordered_map<std:: string, std::string>& map) {
 
 }
 
-WAL:: ~WAL() = default;
+WAL::~WAL() {
+    if(log_writer_.is_open()){
+        log_writer_.flush();
+        log_writer_.close();
+    }
+};
