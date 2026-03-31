@@ -88,6 +88,17 @@ Threads: 8 | Throughput: 898876 ops/sec | P99 Latency: 0.113583 ms
 
 ## Build Instructions
 
+### Option 1: Using CMake (Recommended)
+
+```bash
+mkdir build
+cd build
+cmake ..
+make
+```
+
+### Option 2: Manual Compilation
+
 ```bash
 g++ src/wal.cpp src/kv_store.cpp benchmark/benchmark.cpp -I src -std=c++20 -O2 -pthread -o kv_benchmark
 ```
